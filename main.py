@@ -1,5 +1,5 @@
 import pandas as pd
-from functions import get_historical_prices, inversion_pasiva
+from functions import get_historical_prices, my_investment_strategy
 from data import Lectura_Datos_Naftrac
 
 
@@ -12,20 +12,18 @@ posiciones = Lectura_Datos_Naftrac("20230125")
 # Obtener los precios históricos de los tickers y los pesos correspondientes
 start_date = "2021-01-29"
 end_date = fecha
-prices_daily, prices_monthly, ticker_weights = get_historical_prices(start_date, end_date, posiciones)
+prices_df, monthly_prices_df, symbol_weights = get_historical_prices(start_date, end_date, posiciones)
 
 # Realizar la estrategia de inversión pasiva
 initial_capital = 10000
 commission = 0.001
-df_pasiva_info, df_pasiva, df_pasiva_metricas = inversion_pasiva(prices_monthly, ticker_weights, initial_capital, commission)
+df_positions, df_evolution, df_metrics = my_investment_strategy(prices_df, symbol_weights, initial_capital, commission)
 
 # Mostrar los resultados
 
-print("\nPrecios históricos de los tickers y pesos correspondientes:")
-print(prices_monthly)
 print("\nInformación sobre la estrategia de inversión pasiva:")
-print(df_pasiva_info)
+print(df_positions)
 print("\nResultados de la estrategia de inversión pasiva:")
-print(df_pasiva)
+print(df_evolution)
 print("\nMétricas de la estrategia de inversión pasiva:")
-print(df_pasiva_metricas)
+print(df_metrics)

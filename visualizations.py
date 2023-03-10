@@ -1,7 +1,7 @@
 import pandas as pd
 from functions import get_historical_prices, my_investment_strategy
 from data import Lectura_Datos_Naftrac
-
+from tabulate import tabulate
 
 # Definir la fecha deseada para leer las posiciones del NAFTRAC
 fecha = "2023-01-25"
@@ -19,10 +19,12 @@ initial_capital = 1000000
 commission = 00.00125
 df_positions, df_evolution, df_metrics = my_investment_strategy(prices_df, symbol_weights, initial_capital, commission)
 
-# Mostrar los resultados
+# Convertir la tabla a formato markdown
+positions_table = tabulate(df_positions, headers='keys', tablefmt='pipe', showindex=False)
 
+# Mostrar los resultados
 print("\nInformación sobre la estrategia de inversión pasiva:")
-print(df_positions)
+print(positions_table)
 print("\nResultados de la estrategia de inversión pasiva:")
 print(df_evolution)
 print("\nMétricas de la estrategia de inversión pasiva:")

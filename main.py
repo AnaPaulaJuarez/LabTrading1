@@ -1,13 +1,13 @@
 import pandas as pd
 from functions import get_historical_prices, inversion_pasiva
-from data import lecturaDatos
+from data import Lectura_Datos_Naftrac
 
 
 # Definir la fecha deseada para leer las posiciones del NAFTRAC
 fecha = "2023-01-25"
 
 # Leer las posiciones del NAFTRAC para la fecha deseada
-posiciones = lecturaDatos("20230125")
+posiciones = Lectura_Datos_Naftrac("20230125")
 
 # Obtener los precios históricos de los tickers y los pesos correspondientes
 start_date = "2021-01-29"

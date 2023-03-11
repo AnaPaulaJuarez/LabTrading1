@@ -8,7 +8,7 @@ def get_historical_prices(start: str, end: str, positions: str):
     
     # Crear un diccionario de símbolos para descargar y establecer una lista de filtros.
     symbol_weights = {}
-    filter_symbols = ["KOFL", "KOFUBL", "USD", "MXN", "BSMXB", "NMKA"]
+    filter_symbols = ["KOFL", "KOFUBL", "USD", "BSMXB", "NMKA"]
     
     # Agregar cada símbolo y su peso a los símbolos a descargar si el símbolo no está en la lista de filtros.
     for i in range(len(positions)):
